@@ -1,21 +1,23 @@
 import React from "react";
 
-function Task({task, onDeleteTask}) {
+function Task({ task, onDeleteTask }) {
   const { text, category } = task;
 
-  //Function to handle the delete button click.
+  // Function to handle the delete button click.
   const handleDeleteClick = () => {
-//Call callback prop to signal delete to parent
-    if (onDeleteTask)
-    {onDeleteTask(task);}
+    // Call callback prop to signal delete to the parent
+    if (onDeleteTask) {
+      onDeleteTask(task);
+    }
   };
-
 
   return (
     <div className="task">
       <div className="label">{category}</div>
-      <div className="text">{text}</div>
-      <button className="delete" onClick={handleDeleteClick}>X</button>
+      <div className="text">{text}</div> {/* Display the task's text */}
+      <button className="delete" onClick={handleDeleteClick}>
+        X
+      </button>
     </div>
   );
 }
